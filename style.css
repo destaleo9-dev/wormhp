@@ -1,0 +1,131 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    font-family: 'Arial', sans-serif;
+    user-select: none;
+}
+
+body {
+    background-color: #1a1a1a;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    overflow: hidden;
+}
+
+.game-container {
+    position: relative;
+    width: 900px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+    border-radius: 8px;
+    overflow: hidden;
+    background-color: #23642d;
+}
+
+.header {
+    width: 100%;
+    height: 50px;
+    background-color: #194620;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 20px;
+    color: #ffffff;
+    font-size: 20px;
+    font-weight: bold;
+    z-index: 2;
+}
+
+#highscore {
+    color: #ffd700;
+}
+
+canvas {
+    background-color: #23642d;
+    display: block;
+}
+
+/* Overlay Menu & Game Over */
+.overlay {
+    position: absolute;
+    top: 50px;
+    left: 0;
+    width: 100%;
+    height: 550px;
+    background-color: rgba(0, 0, 0, 0.75);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    color: white;
+    z-index: 10;
+}
+
+.overlay h1 {
+    font-size: 50px;
+    color: #64dc64;
+    margin-bottom: 10px;
+}
+
+.overlay p {
+    font-size: 20px;
+    margin: 8px 0;
+}
+
+.overlay .highlight {
+    color: #ffd700;
+    font-weight: bold;
+    margin-top: 20px;
+}
+
+.overlay .small {
+    font-size: 15px;
+    color: #ccc;
+}
+
+/* Kontrol Tombol On-Screen */
+.controls {
+    position: absolute;
+    bottom: 20px;
+    right: 20px;
+    z-index: 5;
+}
+
+.dpad {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.horizontal {
+    display: flex;
+    gap: 5px;
+}
+
+.btn {
+    width: 50px;
+    height: 50px;
+    background-color: #378241;
+    color: white;
+    border: none;
+    border-radius: 8px;
+    font-size: 24px;
+    font-weight: bold;
+    cursor: pointer;
+    box-shadow: 0 4px 0 #194620;
+    transition: background-color 0.1s;
+}
+
+.btn:hover {
+    background-color: #4ba055;
+}
+
+.btn:active {
+    transform: translateY(2px);
+    box-shadow: 0 2px 0 #194620;
+}
