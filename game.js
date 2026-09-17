@@ -77,12 +77,35 @@ window.addEventListener('keydown', (e) => {
     }
 });
 
+function setDirectionFromInput(dx, dy) {
+    if (gameState === 'PLAYING') {
+        if (dx === 0 && dy === -1 && direction.y === 0) nextDirection = { x: 0, y: -1 };
+        if (dx === 0 && dy === 1 && direction.y === 0) nextDirection = { x: 0, y: 1 };
+        if (dx === -1 && dy === 0 && direction.x === 0) nextDirection = { x: -1, y: 0 };
+        if (dx === 1 && dy === 0 && direction.x === 0) nextDirection = { x: 1, y: 0 };
+    }
+}
+
 // Tombol On-screen D-Pad
-document.getElementById('btnUp').addEventListener('click', () => { if (direction.y === 0) nextDirection = { x: 0, y: -1 }; });
-document.getElementById('btnDown').addEventListener('click', () => { if (direction.y === 0) nextDirection = { x: 0, y: 1 }; });
-document.getElementById('btnLeft').addEventListener('click', () => { if (direction.x === 0) nextDirection = { x: -1, y: 0 }; });
-document.getElementById('btnRight').addEventListener('click', () => { if (direction.x === 0) nextDirection = { x: 1, y: 0 }; });
-overlay.addEventListener('click', () => {
+const btnUp = document.getElementById('btnUp');
+const btnDown = document.getElementById('btnDown');
+const btnLeft = document.getElementById('btnLeft');
+const btnRight = document.getElementById('btnRight');
+
+[btnUp, btnDown, btnLeft, btnRight].forEach((btn) => {
+    btn.addEventListener('pointerdown', (event) => {
+        event.preventDefault();
+        if (btn === btnUp) setDirectionFromInput(0, -1);
+        if (btn === btnDown) setDirectionFromInput(0, 1);
+        if (btn === btnLeft) setDirectionFromInput(-1, 0);
+        if (btn === btnRight) setDirectionFromInput(1, 0);
+    });
+    btn.addEventListener('click', (event) => {
+        event.preventDefault();
+    });
+});
+
+overlay.addEventListener('pointerdown', () => {
     if (gameState === 'MENU' || gameState === 'GAMEOVER') resetGame();
 });
 
