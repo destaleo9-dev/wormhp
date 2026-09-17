@@ -2,185 +2,345 @@
     box-sizing: border-box;
     margin: 0;
     padding: 0;
-    font-family: 'Arial', sans-serif;
+
+    font-family: Arial, sans-serif;
+
     user-select: none;
+    -webkit-user-select: none;
 }
 
-html, body {
-    height: 100%;
+html,
+body {
+    width: 100%;
+    min-height: 100%;
 }
 
 body {
-    background: radial-gradient(circle at top, #2d4f2d, #101010 60%);
+    min-height: 100vh;
+
     display: flex;
     justify-content: center;
     align-items: center;
-    min-height: 100vh;
+
     padding: 12px;
+
+    background:
+        radial-gradient(
+            circle at top,
+            #2d4f2d,
+            #101010 65%
+        );
+
     overflow: hidden;
+
     touch-action: manipulation;
 }
 
+
+/* ==========================================
+   GAME CONTAINER
+========================================== */
+
 .game-container {
     position: relative;
-    width: min(900px, calc(100vw - 18px));
-    max-width: 460px;
+
+    width: min(900px, calc(100vw - 24px));
+
+    max-width: 900px;
+
     display: flex;
     flex-direction: column;
     align-items: center;
-    box-shadow: 0 10px 30px rgba(0,0,0,0.5);
-    border-radius: 12px;
+
+    background: #23642d;
+
+    border-radius: 14px;
+
     overflow: hidden;
-    background-color: #23642d;
+
+    box-shadow:
+        0 15px 40px rgba(0, 0, 0, 0.55);
 }
+
+
+/* ==========================================
+   HEADER
+========================================== */
 
 .header {
     width: 100%;
-    height: 50px;
-    background-color: #194620;
+    height: 52px;
+
     display: flex;
-    justify-content: space-between;
     align-items: center;
+    justify-content: space-between;
+
     padding: 0 20px;
-    color: #ffffff;
+
+    background: #194620;
+
+    color: white;
+
     font-size: 20px;
     font-weight: bold;
-    z-index: 2;
+
+    z-index: 20;
 }
 
 #highscore {
     color: #ffd700;
 }
 
+
+/* ==========================================
+   CANVAS
+========================================== */
+
 canvas {
+    display: block;
+
     width: 100%;
     height: auto;
-    display: block;
-    background-color: #23642d;
+
+    background: #23642d;
+
     aspect-ratio: 900 / 550;
 }
 
-/* Overlay Menu & Game Over */
+
+/* ==========================================
+   OVERLAY
+========================================== */
+
 .overlay {
     position: absolute;
-    top: 50px;
+
+    top: 52px;
     left: 0;
+
     width: 100%;
-    height: calc(100% - 50px);
-    background-color: rgba(0, 0, 0, 0.75);
+    height: calc(100% - 52px);
+
     display: flex;
     flex-direction: column;
+
     justify-content: center;
     align-items: center;
-    color: white;
-    z-index: 10;
-    text-align: center;
+
     padding: 20px;
+
+    text-align: center;
+
+    color: white;
+
+    background: rgba(0, 0, 0, 0.74);
+
+    z-index: 15;
 }
 
 .overlay h1 {
-    font-size: clamp(28px, 5vw, 50px);
+    margin-bottom: 12px;
+
     color: #64dc64;
-    margin-bottom: 10px;
+
+    font-size: clamp(
+        28px,
+        6vw,
+        52px
+    );
+
+    text-shadow:
+        0 3px 10px rgba(0, 0, 0, 0.5);
 }
 
 .overlay p {
-    font-size: clamp(14px, 2vw, 20px);
-    margin: 8px 0;
+    margin: 7px 0;
+
+    font-size: clamp(
+        14px,
+        2vw,
+        20px
+    );
 }
 
 .overlay .highlight {
-    color: #ffd700;
-    font-weight: bold;
     margin-top: 20px;
+
+    color: #ffd700;
+
+    font-weight: bold;
 }
 
 .overlay .small {
-    font-size: clamp(12px, 1.8vw, 15px);
-    color: #ccc;
+    color: #cccccc;
+
+    font-size: clamp(
+        12px,
+        1.8vw,
+        15px
+    );
 }
 
-/* Kontrol Tombol On-Screen */
+
+/* ==========================================
+   MOBILE CONTROLS
+========================================== */
+
 .controls {
     position: absolute;
-    bottom: 18px;
+
     right: 18px;
-    z-index: 5;
+    bottom: 18px;
+
+    z-index: 10;
 }
 
 .dpad {
     display: flex;
     flex-direction: column;
+
     align-items: center;
 }
 
 .horizontal {
     display: flex;
-    gap: 5px;
+
+    gap: 6px;
 }
 
 .btn {
     width: 54px;
     height: 54px;
-    background-color: #378241;
-    color: white;
+
     border: none;
     border-radius: 12px;
+
+    background: #378241;
+
+    color: white;
+
     font-size: 24px;
     font-weight: bold;
+
     cursor: pointer;
-    box-shadow: 0 4px 0 #194620;
-    transition: background-color 0.1s, transform 0.08s ease;
+
+    box-shadow:
+        0 4px 0 #194620;
+
+    transition:
+        background 0.1s,
+        transform 0.08s;
+    
     touch-action: manipulation;
+
     -webkit-tap-highlight-color: transparent;
 }
 
 .btn:hover {
-    background-color: #4ba055;
+    background: #4ba055;
 }
 
 .btn:active {
     transform: translateY(2px);
-    box-shadow: 0 2px 0 #194620;
+
+    box-shadow:
+        0 2px 0 #194620;
 }
 
-@media (max-width: 600px) {
+
+/* ==========================================
+   TABLET
+========================================== */
+
+@media (max-width: 700px) {
+
     body {
         padding: 8px;
     }
 
+    .game-container {
+        width: calc(100vw - 16px);
+
+        border-radius: 10px;
+    }
+
     .header {
-        font-size: 16px;
-        padding: 0 12px;
         height: 44px;
+
+        padding: 0 12px;
+
+        font-size: 16px;
+    }
+
+    .overlay {
+        top: 44px;
+
+        height: calc(100% - 44px);
     }
 
     .controls {
-        bottom: 12px;
         right: 12px;
+        bottom: 12px;
     }
 
     .btn {
         width: 46px;
         height: 46px;
+
         font-size: 20px;
+
         border-radius: 10px;
     }
+
 }
 
+
+/* ==========================================
+   SMALL PHONE
+========================================== */
+
 @media (max-width: 420px) {
+
+    body {
+        padding: 5px;
+    }
+
     .game-container {
         width: calc(100vw - 10px);
     }
 
+    .header {
+        height: 40px;
+
+        padding: 0 10px;
+
+        font-size: 14px;
+    }
+
+    .overlay {
+        top: 40px;
+
+        height: calc(100% - 40px);
+
+        padding: 12px;
+    }
+
     .controls {
-        bottom: 10px;
-        right: 10px;
+        right: 8px;
+        bottom: 8px;
     }
 
     .btn {
-        width: 42px;
-        height: 42px;
+        width: 40px;
+        height: 40px;
+
         font-size: 18px;
+
+        border-radius: 9px;
     }
+
+    .horizontal {
+        gap: 4px;
+    }
+
 }

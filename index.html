@@ -3,41 +3,82 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
     <title>Realistic Snake - Web Edition</title>
+
     <link rel="stylesheet" href="style.css">
 </head>
+
 <body>
+
     <div class="game-container">
-        <!-- Header Skor -->
+
+        <!-- HEADER -->
         <div class="header">
             <span id="score">Score: 0</span>
             <span id="highscore">High Score: 0</span>
         </div>
 
-        <!-- Canvas Utama Game -->
-        <canvas id="gameCanvas" width="900" height="550"></canvas>
+        <!-- GAME CANVAS -->
+        <canvas
+            id="gameCanvas"
+            width="900"
+            height="550">
+        </canvas>
 
-        <!-- Overlay Menu / Game Over -->
+        <!-- MENU / PAUSE / GAME OVER -->
         <div id="overlay" class="overlay">
-            <h1 id="overlayTitle">REALISTIC SNAKE</h1>
-            <p id="overlaySubtitle">HTML5 Canvas + JavaScript</p>
-            <p id="overlayAction" class="highlight">TEKAN ENTER ATAU KLIK UNTUK MULAI</p>
-            <p id="overlayControl" class="small">PANAH = Gerak | SPACE = Pause</p>
+
+            <h1 id="overlayTitle">
+                REALISTIC SNAKE
+            </h1>
+
+            <p id="overlaySubtitle">
+                HTML5 Canvas + JavaScript
+            </p>
+
+            <p id="overlayAction" class="highlight">
+                TEKAN ENTER ATAU KLIK UNTUK MULAI
+            </p>
+
+            <p id="overlayControl" class="small">
+                PANAH = Gerak | SPACE = Pause
+            </p>
+
         </div>
 
-        <!-- Kontrol Tombol On-Screen (Mobile / Mouse) -->
+        <!-- MOBILE CONTROLS -->
         <div class="controls">
+
             <div class="dpad">
-                <button id="btnUp" class="btn">↑</button>
+
+                <button id="btnUp" class="btn">
+                    ↑
+                </button>
+
                 <div class="horizontal">
-                    <button id="btnLeft" class="btn">←</button>
-                    <button id="btnDown" class="btn">↓</button>
-                    <button id="btnRight" class="btn">→</button>
+
+                    <button id="btnLeft" class="btn">
+                        ←
+                    </button>
+
+                    <button id="btnDown" class="btn">
+                        ↓
+                    </button>
+
+                    <button id="btnRight" class="btn">
+                        →
+                    </button>
+
                 </div>
+
             </div>
+
         </div>
+
     </div>
 
     <script src="game.js"></script>
+
 </body>
 </html>
